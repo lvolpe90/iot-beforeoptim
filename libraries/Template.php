@@ -13,7 +13,7 @@
 class Template
 {
   protected 	$ci;
-  	# Header and footer location
+  	# Header and footer location 
  	public $header = 'template/header';
  	public $footer = 'template/footer';
     public $admin_header = 'template/admin/header';
