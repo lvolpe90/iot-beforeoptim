@@ -4,7 +4,7 @@
 
 class RilevazioneCrud {
     
-    private $ci;
+    protected $ci;
     
         
     public function __construct() {

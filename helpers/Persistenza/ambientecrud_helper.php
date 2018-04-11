@@ -4,7 +4,7 @@
 class AmbienteCrud {
     
     
-    private $ci;
+    protected $ci;
     
         
     public function __construct() {

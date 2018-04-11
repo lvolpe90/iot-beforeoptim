@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
@@ -10,7 +9,7 @@ class Welcome extends CI_Controller {
 	{
         
                     
-            $this->load->helper ("Persistenza/RilevazioneCrud");
+            $this->load->helper ('Persistenza/RilevazioneCrud');
 
             
             $ril = new RilevazioneCrud();
@@ -19,7 +18,7 @@ class Welcome extends CI_Controller {
             echo $ril->LeggiRilevazioni(1);
         
         
-        $this->template->page_header = "IoT Inc. - Progetto sensori";
+        $this->template->page_header = 'IoT Inc. - Progetto sensori';
 
         if (! $this->session->login ) {
             $this->template->load('welcome_message');

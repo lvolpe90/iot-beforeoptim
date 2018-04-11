@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
@@ -17,10 +16,10 @@ class Login extends CI_Controller {
     private function db() {
 //        $this->load->dbforge();
 //        
-//        $this->dbforge->drop_table("utenti");
+//        $this->dbforge->drop_table('utenti');
 //        
-//        $this->dbforge->add_field("id");
-//        $this->dbforge->add_key("id");
+//        $this->dbforge->add_field('id');
+//        $this->dbforge->add_key('id');
 //        $this->dbforge->create_table('utenti', TRUE);
 //        
 //        $this->dbforge->add_column('utenti', 'username');
@@ -31,38 +30,38 @@ class Login extends CI_Controller {
     
     public function __construct() {
         
-        private $utenti = array("admin"=>array("role"=>"Administrator", "password"=>"1234", "fullname"=>"Luigi Volpe",                                                      "image"=>"assets/img/avatar5.png"),
-                       "utente"=>array("role"=>"Utente", "password"=>"1234", "fullname"=>"Ospite", "image"=>"assets/img/avatar3.png"));
+        private $utenti = array('admin'=>array('role'=>'Administrator', 'password'=>'1234', 'fullname'=>'Luigi Volpe',                                                      'image'=>'assets/img/avatar5.png'),
+                       'utente'=>array('role'=>'Utente', 'password'=>'1234', 'fullname'=>'Ospite', 'image'=>'assets/img/avatar3.png'));
 
 
         parent::__construct();
         
         $this->db();
 
-        //$utenti = $this->db->query("SELECT * FROM utenti")->result();
+        //$utenti = $this->db->query('SELECT * FROM utenti')->result();
 
-        $this->template->page_header = "Accesso al dashboard";
+        $this->template->page_header = 'Accesso al dashboard';
         
         if (!$this->session->login) {
-            $username  = "";
-            $password  = "";
+            $username  = '';
+            $password  = '';
 
-            if (isset($this->input->post()["username"])) {
-                $username = $this->input->post()["username"];
+            if (isset($this->input->post()['username'])) {
+                $username = $this->input->post()['username'];
             }
-            if (isset($this->input->post()["password"])) {
-                $password = $this->input->post()["password"];
+            if (isset($this->input->post()['password'])) {
+                $password = $this->input->post()['password'];
             }
 
-            if ($username!="" && $password!="") {
+            if ($username!='' && $password!='') {
                 // controlla l'accesso perché ha ricevuto i dati dal form!
                 $username = trim(strtolower($username));
 
                 if (isset($utenti[$username])) {
-                    if ($utenti[$username]["password"] == $password) {
-                        $this->role = $utenti[$username]["role"];
-                        $this->fullname = $utenti[$username]["fullname"];
-                        $this->image = base_url($utenti[$username]["image"]);
+                    if ($utenti[$username]['password'] == $password) {
+                        $this->role = $utenti[$username]['role'];
+                        $this->fullname = $utenti[$username]['fullname'];
+                        $this->image = base_url($utenti[$username]['image']);
                     }
                 }
 
@@ -125,7 +124,7 @@ class Login extends CI_Controller {
 
     public function profile() {
         if ($this->is_logged_in) {
-            $this->template->page_header = "Il mio profilo";
+            $this->template->page_header = 'Il mio profilo';
             $this->template->load('profile');
         } else {
             $this->template->load('login');

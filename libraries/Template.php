@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
 /**
  * This CI library allows you to load a view 
  * together with its header and footer in one
@@ -32,7 +32,7 @@ class Template
         
         if (!is_array($data)) $data = array();
         
-        $data["page_header"] = $this->page_header;
+        $data['page_header'] = $this->page_header;
         
         if (! $this->ci->session->login ) {
             $this->is_admin = false;    
@@ -44,12 +44,12 @@ class Template
         if ($this->is_admin) {
             
             $userData = array();
-            $userData["name"] = $this->ci->session->username;
-            $userData["role"] = $this->ci->session->role;
-            $userData["image"] = $this->ci->session->image;
-            $userData["fullname"] = $this->ci->session->fullname;
+            $userData['name'] = $this->ci->session->username;
+            $userData['role'] = $this->ci->session->role;
+            $userData['image'] = $this->ci->session->image;
+            $userData['fullname'] = $this->ci->session->fullname;
             
-            $data["user"] = $userData;
+            $data['user'] = $userData;
             
             if($this->admin_header)
             {

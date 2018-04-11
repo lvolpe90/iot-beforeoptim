@@ -5,7 +5,7 @@
 class EccezioneCrud {
     
     
-    private $ci;
+    protected $ci;
     
         
     public function __construct() {
