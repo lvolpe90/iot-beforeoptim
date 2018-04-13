@@ -13,21 +13,6 @@ class Login extends CI_Controller {
     private $is_logged_in = false;
     
 
-    private function db() {
-//        $this->load->dbforge();
-//        
-//        $this->dbforge->drop_table('utenti');
-//        
-//        $this->dbforge->add_field('id');
-//        $this->dbforge->add_key('id');
-//        $this->dbforge->create_table('utenti', TRUE);
-//        
-//        $this->dbforge->add_column('utenti', 'username');
-//        $this->dbforge->add_column('utenti', 'password');
-//        $this->dbforge->add_column('utenti', 'fullname');
-//        $this->dbforge->add_column('utenti', 'image');
-    }
-    
     public function __construct() {
         
 

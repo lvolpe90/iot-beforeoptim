@@ -19,6 +19,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') ?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/font-awesome/css/font-awesome.min.css') ?>">
+    
+<link rel="stylesheet" href="<?php echo base_url('assets/bower_components/bootstrap-daterangepicker/daterangepicker.css') ?>">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>">
   <!-- Theme style -->
@@ -49,6 +51,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?php echo base_url('assets/js/adminlte.min.js') ?>"></script>
 
 <script src="<?php echo base_url('assets/bower_components/chart.js/Chart.js') ?>"></script>
+    
+<script src="<?php echo base_url('assets/bower_components/moment/min/moment-with-locales.min.js') ?>"></script>
+
+<script src="<?php echo base_url('assets/bower_components/bootstrap-daterangepicker/daterangepicker.js') ?>"></script>
+    
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
@@ -191,8 +198,8 @@ desired effect
         <li class="header">MENU PRINCIPALE</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="<?php echo base_url('RichiestaDashboard') ?>"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li><a href="#"><i class="fa fa-table"></i> <span>Consultazione rilevazioni</span></a></li>
-        <li><a href="#"><i class="fa fa-random"></i> <span>Esportazione rilevazioni</span></a></li>
+        <li><a href="<?php echo base_url('RichiestaReport') ?>"><i class="fa fa-table"></i> <span>Consultazione rilevazioni</span></a></li>
+        <li><a href="<?php echo base_url('RichiestaExport') ?>"><i class="fa fa-random"></i> <span>Esportazione rilevazioni</span></a></li>
           <?php if ($this->session->role == "Administrator"): ?>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Gestione</span>

@@ -51,7 +51,7 @@ class RilevazioneCrud {
     
     public function LeggiRilevazioniTempo($idImpianto, $dataDa, $dataA) {
         
-        $qry = 'SELECT rilevazione.*, tipo as sensore FROM rilevazione LEFT JOIN sensore ON (sensore.idSensore=rilevazione.idSensore) WHERE dataOra BETWEEN datetime(\''.$dataDa.'\') AND datetime(\''.$dataA.'\')  AND idImpianto = '.$idImpianto.' ';
+        $qry = 'SELECT rilevazione.*, tipo as sensore, descrizione as impianto FROM rilevazione LEFT JOIN sensore ON (sensore.idSensore=rilevazione.idSensore) LEFT JOIN impianto ON (impianto.idImpianto=rilevazione.idImpianto) WHERE dataOra BETWEEN datetime(\''.$dataDa.'\') AND datetime(\''.$dataA.'\')  AND rilevazione.idImpianto = '.$idImpianto.' ';
 
         return $this->ci->db->query($qry)->result('Rilevazione');
         
