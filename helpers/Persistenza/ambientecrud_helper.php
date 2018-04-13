@@ -26,10 +26,13 @@ class AmbienteCrud {
             return 0;
     }
     
-    public function ListaAmbienti($utente) {
-        // utente -> string
+    public function ListaAmbienti($idUtente) {
+        // utente -> id utente
         // ritorna lista di ambienti
         
+        $rows = $this->ci->db->get_where('accesso', array('idUtente'=>$idUtente))->result('Ambiente');
+        
+        return $rows;
         
     }
     
@@ -37,8 +40,10 @@ class AmbienteCrud {
         
         // ritorna lista impianti
         
+        $rows = $this->ci->db->get_where('impianto', array('idAmbiente'=>$idAmbiente))->result('Impianto');
+     
         
-        
+        return $rows;
     }
 
     

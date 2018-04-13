@@ -4,7 +4,7 @@
 class Eccezione {
     
     
-    public $sensore;
+    // public $sensore;
     
     public $idEccezione;
     
@@ -18,6 +18,7 @@ class Eccezione {
     public $idSensore;
 
     
+    // public $impianto;
     
     
 }

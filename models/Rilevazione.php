@@ -4,7 +4,7 @@
 class Rilevazione  {
     
     
-    public $sensore;
+    //public $sensore;
     public $idRilevazione;
     public $dataOra;
     public $valore;

@@ -44,10 +44,16 @@ class RilevazioneCrud {
     
     public function LeggiRilevazioni($idImpianto) {
         
+        return $this->ci->db->get_where('rilevazione', array('idImpianto'=>$idImpianto))->result('Rilevazione');
+        
     }
     
     
     public function LeggiRilevazioniTempo($idImpianto, $dataDa, $dataA) {
+        
+        $qry = 'SELECT rilevazione.*, tipo as sensore FROM rilevazione LEFT JOIN sensore ON (sensore.idSensore=rilevazione.idSensore) WHERE dataOra BETWEEN datetime(\''.$dataDa.'\') AND datetime(\''.$dataA.'\')  AND idImpianto = '.$idImpianto.' ';
+
+        return $this->ci->db->query($qry)->result('Rilevazione');
         
         
         

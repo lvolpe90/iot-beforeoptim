@@ -30,13 +30,13 @@ class Login extends CI_Controller {
     
     public function __construct() {
         
-        private $utenti = array('admin'=>array('role'=>'Administrator', 'password'=>'1234', 'fullname'=>'Luigi Volpe',                                                      'image'=>'assets/img/avatar5.png'),
-                       'utente'=>array('role'=>'Utente', 'password'=>'1234', 'fullname'=>'Ospite', 'image'=>'assets/img/avatar3.png'));
 
 
         parent::__construct();
         
-        $this->db();
+        $utenti = array('admin'=>array('role'=>'Administrator', 'password'=>'1234', 'fullname'=>'Luigi Volpe',                                                      'image'=>'assets/img/avatar5.png', 'id'=>0),
+               'utente'=>array('id'=>1, 'role'=>'Utente', 'password'=>'utente', 'fullname'=>'CLIENTE 1', 'image'=>'assets/img/avatar3.png'));
+
 
         //$utenti = $this->db->query('SELECT * FROM utenti')->result();
 
@@ -62,6 +62,7 @@ class Login extends CI_Controller {
                         $this->role = $utenti[$username]['role'];
                         $this->fullname = $utenti[$username]['fullname'];
                         $this->image = base_url($utenti[$username]['image']);
+                        $this->id = $utenti[$username]['id'];
                     }
                 }
 
@@ -76,6 +77,8 @@ class Login extends CI_Controller {
                 $this->session->role = $this->role;
                 $this->session->image = $this->image;
                 $this->session->fullname = $this->fullname;
+                $this->session->id = $this->id;
+                
                 $this->is_logged_in = true;
 
 
@@ -86,6 +89,7 @@ class Login extends CI_Controller {
                 $this->session->role = false;
                 $this->session->image = false;
                 $this->session->fullname = false;
+                $this->session->id = false;
                 
                 $this->is_logged_in = false;
 
@@ -117,6 +121,7 @@ class Login extends CI_Controller {
         $this->session->role = false;   
         $this->session->image = false;
         $this->session->fullname = false;
+        $this->session->id = false;
         
         $this->template->load('login');
     }

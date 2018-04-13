@@ -46,13 +46,14 @@ class EccezioneCrud {
     
     
     public function LeggiEccezioni($idImpianto) {
-        
+        return $this->ci->db->get_where('eccezione', array('idImpianto'=>$idImpianto))->result('Eccezione');
     }
     
     
     public function LeggiEccezioniTempo($idImpianto, $dataDa, $dataA) {
+        $qry = 'SELECT eccezione.*, tipo as sensore, impianto.descrizione as impianto FROM eccezione LEFT JOIN sensore ON (sensore.idSensore=eccezione.idSensore) LEFT JOIN impianto ON (impianto.idImpianto = eccezione.idImpianto) WHERE dataOra BETWEEN datetime(\''.$dataDa.'\') AND datetime(\''.$dataA.'\')  AND eccezione.idImpianto = '.$idImpianto.'  ORDER BY datetime(dataOra) DESC';
         
-        
+        return $this->ci->db->query($qry)->result('Eccezione');
         
     }
     

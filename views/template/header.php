@@ -38,6 +38,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    
+    <!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url('assets/js/adminlte.min.js') ?>"></script>
+
+<script src="<?php echo base_url('assets/bower_components/chart.js/Chart.js') ?>"></script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+    
 </head>
 <!--
 BODY TAG OPTIONS:
